@@ -3,9 +3,7 @@ import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
-import eslintPluginPrettier from "eslint-plugin-prettier";
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 
 export default tseslint.config(
   { ignores: ["dist"] },
@@ -19,9 +17,7 @@ export default tseslint.config(
     plugins: {
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
-      prettier: eslintPluginPrettier,
-      "react-x": reactX,
-      "react-dom": reactDom,
+      prettier: eslintPluginPrettierRecommended,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,

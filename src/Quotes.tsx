@@ -14,7 +14,7 @@ export default function Quotes() {
   useEffect(() => {
     setIsLoading(true);
 
-    fetch("https://dummyjson.com/1quotes")
+    fetch("https://dummyjson.com/quotes")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch quotes");
         return res.json();
