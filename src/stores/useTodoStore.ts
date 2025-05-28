@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { devtools } from "zustand/middleware";
+import { devtools, persist, createJSONStorage } from "zustand/middleware";
 
 interface TodoState {
   todoList: string[];
@@ -7,8 +7,16 @@ interface TodoState {
 }
 
 export const useTodoStore = create<TodoState>()(
-  devtools((set) => ({
-    todoList: [],
-    setTodoList: (todoList) => set({ todoList }),
-  })),
+  devtools(
+    persist(
+      (set) => ({
+        todoList: [],
+        setTodoList: (todoList) => set({ todoList }),
+      }),
+      {
+        name: "todo-list",
+        storage: createJSONStorage(() => localStorage),
+      },
+    ),
+  ),
 );
