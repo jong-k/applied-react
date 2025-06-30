@@ -3,7 +3,6 @@ import { useTranslation, Trans } from "react-i18next";
 
 export default function App() {
   const { t, i18n } = useTranslation();
-  console.log(t);
   const count = 5;
 
   const changeLanguage = () => {

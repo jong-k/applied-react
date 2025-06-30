@@ -4,7 +4,7 @@ import ko from "./locales/ko.json";
 import en from "./locales/en.json";
 
 i18n.use(initReactI18next).init({
-  fallbackLng: "en",
+  fallbackLng: "ko",
   debug: true,
   lng: "ko",
   resources: {
