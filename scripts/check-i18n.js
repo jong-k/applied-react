@@ -23,6 +23,7 @@ const getAllkeys = (obj, parentKey = "") => {
 };
 
 const checkKeys = async () => {
+  let hasError = false;
   const koJson = await loadJson("src/locales/ko.json");
   const enJson = await loadJson("src/locales/en.json");
 
@@ -33,15 +34,18 @@ const checkKeys = async () => {
   const missingInEn = koKeys.filter((key) => !enKeys.includes(key));
   console.log("Checking for missing keys between ko.json and en.json...");
   if (missingInKo.length > 0) {
+    hasError = true;
     console.log("Missing keys in ko.json:", missingInKo);
   } else {
     console.log("No missing keys in ko.json");
   }
   if (missingInEn.length > 0) {
+    hasError = true;
     console.log("Missing keys in en.json:", missingInEn);
   } else {
     console.log("No missing keys in en.json");
   }
+  if (hasError) process.exit(1);
 };
 
 const main = async () => {
