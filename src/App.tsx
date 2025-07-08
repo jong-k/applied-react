@@ -14,6 +14,7 @@ export default function App() {
     <div className="flex gap-4 flex-col">
       <Link to="/quotes">속담 리스트</Link>
       <Link to="/todo">할 일 리스트</Link>
+      <Link to="/api-test">API 테스트</Link>
       <div>
         <div>
           <div>현재 언어: {i18n.language}</div>
