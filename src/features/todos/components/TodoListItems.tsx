@@ -1,4 +1,4 @@
-import { useTodoStore } from "../stores";
+import { useTodoStore } from "../../../stores";
 
 export default function TodoListItems() {
   const { todoList } = useTodoStore();

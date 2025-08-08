@@ -1,12 +1,8 @@
 import { useState, useEffect } from "react";
+import { quotesApi } from "../api";
+import type { Quote } from "../types";
 
-interface Quote {
-  id: number;
-  quote: string;
-  author: string;
-}
-
-export default function Quotes() {
+export default function QuotesList() {
   const [quotes, setQuotes] = useState<Quote[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
@@ -14,11 +10,8 @@ export default function Quotes() {
   useEffect(() => {
     setIsLoading(true);
 
-    fetch("https://dummyjson.com/quotes")
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch quotes");
-        return res.json();
-      })
+    quotesApi
+      .getQuotes()
       .then((data) => setQuotes(data.quotes))
       .catch((err) => setError(err))
       .finally(() => setIsLoading(false));

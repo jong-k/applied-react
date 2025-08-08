@@ -24,8 +24,8 @@ const getAllkeys = (obj, parentKey = "") => {
 
 const checkKeys = async () => {
   let hasError = false;
-  const koJson = await loadJson("src/locales/ko.json");
-  const enJson = await loadJson("src/locales/en.json");
+  const koJson = await loadJson("src/features/i18n/locales/ko.json");
+  const enJson = await loadJson("src/features/i18n/locales/en.json");
 
   const koKeys = getAllkeys(koJson);
   const enKeys = getAllkeys(enJson);

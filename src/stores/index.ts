@@ -1,1 +1,1 @@
-export * from "./useTodoStore";
+export { useTodoStore } from "./useTodoStore";
